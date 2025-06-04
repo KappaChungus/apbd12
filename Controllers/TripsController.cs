@@ -1,4 +1,5 @@
-﻿using abdp12.Services;
+﻿using abdp12.DTOS;
+using abdp12.Services;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,6 +26,20 @@ public class TripsController :ControllerBase
     {
         var (code, message) = await _dbService.DeleteClient(clientId);
 
+        return code switch
+        {
+            200 => Ok(message),
+            400 => BadRequest(message),
+            404 => NotFound(message),
+            _ => StatusCode(500, "Unexpected error occurred")
+        };
+    }
+
+    [HttpPost("{idTrip}/clients")]
+    public async Task<IActionResult> Update(int idTrip,[FromBody] AttachClientToTripDTO attachClientToTripDTO)
+    {
+        Console.Write("xD");
+        var (code,message) = await _dbService.AttachClientToTrip(idTrip, attachClientToTripDTO);
         return code switch
         {
             200 => Ok(message),
