@@ -48,4 +48,22 @@ public class DbService : IDbService
         };
 
     }
+
+    public async Task<(int Code, string Message)> DeleteClient(int clientId)
+    {
+        bool clientHasTrip = await _context.ClientTrips
+            .AnyAsync(ct => ct.IdClient == clientId);
+
+        if (clientHasTrip)
+            return (400, "Client has trip reservation");
+
+        int res = await _context.Clients
+            .Where(c => c.IdClient == clientId)
+            .ExecuteDeleteAsync();
+
+        if (res == 0)
+            return (404, "No such user");
+
+        return (200, "Client deleted successfully");
+    }
 }
