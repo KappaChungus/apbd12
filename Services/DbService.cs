@@ -117,7 +117,7 @@ public class DbService : IDbService
 
             await _context.ClientTrips.AddAsync(newClientTrip);
             await _context.SaveChangesAsync();
-
+            await transaction.CommitAsync();
             return (200, "Client successfully attached to trip");
         }catch (Exception ex)
         {

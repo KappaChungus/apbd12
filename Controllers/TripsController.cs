@@ -38,7 +38,6 @@ public class TripsController :ControllerBase
     [HttpPost("{idTrip}/clients")]
     public async Task<IActionResult> Update(int idTrip,[FromBody] AttachClientToTripDTO attachClientToTripDTO)
     {
-        Console.Write("xD");
         var (code,message) = await _dbService.AttachClientToTrip(idTrip, attachClientToTripDTO);
         return code switch
         {
