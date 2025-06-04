@@ -1,0 +1,67 @@
+﻿# Rider project files
+.idea/
+*.sln.iml
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Rider local history
+.idea/.idea.LocalHistory/
+
+# Rider workspace files
+*.workspace.xml
+*.workspace
+
+# Build results
+bin/
+obj/
+
+# Rider caches
+.idea/.idea.*
+
+# Rider logs
+.idea/.log
+
+# Visual Studio files
+.vs/
+
+# ReSharper files
+_ReSharper*/
+*.DotSettings.user
+
+# Rider settings
+.idea/caches/
+.idea/usage.statistics.xml
+.idea/dictionaries/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# NuGet
+*.nupkg
+packages/
+.nuget/
+
+# JetBrains Rider Coverage Reports
+.idea/.idea_modules/
+.idea/.idea_modules/.idea_modules.xml
+
+# DotCover
+.idea/.dotCover/
+
+# Rider plugin specific
+.idea/.plugins/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Backup files
+*.bak
+
+# Logs
+*.log
